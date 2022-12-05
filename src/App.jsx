@@ -31,6 +31,16 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HomePage } from "./pages";
 import { JobsList } from "./pages/job-list";
 import { Layout } from "./components/layout/Layout";
+import hola from "./assets/hola.md?raw";
+import { JobDetail } from "./pages/job-detail";
+
+const Code = ({ children }) => {
+  return (
+    <SyntaxHighlighter language="javascript" style={materialDark}>
+      {children}
+    </SyntaxHighlighter>
+  );
+};
 
 function App() {
   return (
@@ -40,6 +50,7 @@ function App() {
         <Route path="" element={<Layout />}>
           <Route index path="" element={<HomePage />} />
           <Route path="job-list" element={<JobsList />} />
+          <Route path="job-detail" element={<JobDetail />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
